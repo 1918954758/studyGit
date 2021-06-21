@@ -1,0 +1,28 @@
+一、本地仓库和GitHub服务器绑定1. 生成key	ssh-keygen -t rsa -C "18515489929@163.com"	---------------------------------------------	-$ ssh-keygen -t rsa -C "18515489929@163.com"
+	-Generating public/private rsa key pair.
+	-Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):
+	-Enter passphrase (empty for no passphrase):
+	-Enter same passphrase again:
+	-Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa
+	-Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub
+	-The key fingerprint is:
+	-SHA256:6DDfZzCNScw/e+QwnzwGvJ8OYq5EYEU9A8Z/1Df/8X0 18515489929@163.com
+	-The key's randomart image is:
+	-+---[RSA 3072]----+
+	-|     o=o   .     |
+	-|     o.o+ . . o  |
+	-|    o  .++   . o |
+	-|   . . o.*.    ..|
+	-|    o o S.O .   =|
+	-|     * . o % .  E|
+	-|      + + * O   .|
+	-|     . o + = o   |
+	-|      ...  .+    |
+	-+----[SHA256]-----+	-	-	---------------------------------------------	2. 在本地C:\Users\Administrator\.ssh路径下会生成三个文件	id_rsa	id_rsa.pub(key文件)	known_hosts	3. 使用编辑器打开id_rsa.pub，复制key4. 打开GitHub -> setting -> SSH and GPG keys -> New SSH key -> 将复制的key粘贴到此处，title随便写5. 测试是否连接上GitHub	ssh -T git@github.com	---------------------------------------------	-Warning: Permanently added the RSA host key for IP address '140.82.112.3' to the list of known hosts.
+	Hi 1918954758! You've successfully authenticated, but GitHub does not provide shell access.	---------------------------------------------6. 创建用户名	git config --global user.name "zichen"	---------------------------------------------	-	---------------------------------------------7. 创建邮箱	git config --global user.email "18515489929@163.com"	8. 查看GitHub用户名	git config user.name	---------------------------------------------
+	-zichen
+	---------------------------------------------	9. 查看GitHub邮箱	git config user.email	---------------------------------------------
+	-18515489929@163.com
+	---------------------------------------------	二、eclipse第一次提交代码1. 在GitHub创建一个仓库，名字最好和项目名一致2. 设置eclipse	Team -> Git -> Configuration -> User Settings	Add Entry...		Key: http.sslVerify		Value: false	Add Entry...		Key: user.email
+		Value: 18515489929@163.com	Add Entry...		Key: name
+		Value: zichen3. 右键项目 -> Team -> Share Project...	打钩： User or create repository in parent folder of project	点击： Create Repository	打钩： 大框框里面的小框框	点击： Finish	4. 右键项目 -> Team -> Commit...	Git Staging	选择 Unstaged Changes 中文件，点击单加号（单个文件添加到提交清单）或者双加号（多个文件添加到提交清单）	输入Commit Message	5. Commit and Push...6. 右键项目 -> Team -> Remote -> Push	URI: https://github.com/1918954758/shopping1.0.git	Host: github.com	Repository path: /1918954758/shopping1.0.git	Port: 不用填	User: 1918954758	Password: Sxd@123456?!	勾选 Store in Secure Store	------此时eclipse已经保存了用户名和密码	7. 删除eclipse保存的用户名和密码Windew -> Preferences - General -> Security -> Secure Storage -> Contents -> [Default Secure Storage] -> GIT -> https:\2f\2fgithub.com:443即可删除
