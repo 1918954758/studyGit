@@ -1,0 +1,85 @@
+1. hibernate需要加载的包
+	<dependency>
+      <groupId>antlr</groupId>
+      <artifactId>antlr</artifactId>
+      <version>2.7.7</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.common/hibernate-commons-annotations -->
+    <dependency>
+      <groupId>org.hibernate.common</groupId>
+      <artifactId>hibernate-commons-annotations</artifactId>
+      <version>5.1.2.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>6.0.0.Alpha8</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <version>1.0.2.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+    <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>3.28.0-GA</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>jboss-logging</artifactId>
+      <version>3.4.2.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.jboss.spec.javax.transaction/jboss-transaction-api_1.1_spec -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.transaction</groupId>
+      <artifactId>jboss-transaction-api_1.1_spec</artifactId>
+      <version>1.0.1.Final</version>
+    </dependency>
+
+2. https://www.bilibili.com/video/BV1qa4y1E7Ye?p=3&spm_id_from=pageDriver
+
+3. 提交github 【图文步骤见eclipse本地项目上传到github仓库（详细步骤）.pdf】
+- 注册账号
+- 新建仓库（仓库名和项目名尽量保持一致）
+- eclipse下载git插件
+	- 首先选择Help --> Install New Software
+	- 弹出如下窗口，点击Add按钮
+	- Name的值可以任意输入，建议见名知。Location的值为 http://download.eclipse.org/egit/updates，往下选择默认的就ok了，安装完成之后需要重启eclipse。
+- eclipse配置git
+	- 配置user的相关信息
+		- window–>preferences–>Team–>Git–>Configuration–>UserSettings
+		- 点击AddEntry…
+		- key : 注册GitHub时的名字
+		- value ： 注册GitHub时的邮箱
+- eclipse项目上传github仓库
+	- 面将已有的项目上传到github的仓库（刚创建的）
+		- 右击要上传的项目–>Team–>Share Project…（注意：项目名称必须与git中一致！！！）
+		- 第一次要勾选 Use or create repository in parent folder of project
+		- 点击 Create Repository，点击之后，或自动选择
+	- 完成后就在本机上创建了一个Git仓库，此时项目中文件会显示问号小图标。
+- 此时就可以把代码提交到本地仓库了，在项目上右键选择Team --> Commit
+- 可以选择某个文件提交，也可以选择全部提交。Commit message为必填项。
+- 点击Commit按钮就可以把代码提交到本地仓库。当然，也可以点击Commit and Push按钮提交代码到本地仓库并上传至GitHub。
+- 选择Commit and Push按钮提交后，输入之前所创建的仓库的url
+- 复制到URI，前三行自动填充，下面填写自己的git账号和密码即可。
+- 接着Next–>Next–>Finsh就行了。
+- 如果你没有Git密匙的话，还会有一个弹框。Store in Secure Store记得要勾选（勾选的话，每次提交就不需要输用户名和密码了），勾选后会有一个问题设置填写。
+
+Question1
+Question : 123
+Answer : 123
+
+Question1
+Question : 1234
+Answer : 1234
