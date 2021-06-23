@@ -1,0 +1,156 @@
+## 1. ExtJs:
+- 和事件相关的类
+	- Ext.util.Observable
+	- Ext.lib.Event
+	- Ext.EventManager
+	- Ext.EventObject
+- 以下两个方法，在DOM加载完毕执行，保证页面内所有元素都能被script所引用
+	- Ext.application(); 
+	- Ext.onReady();
+- 根据ID获取页面上的元素：
+	- Ext.get('myDiv');
+- 获取页面上标签p集合
+	- var ps = Ext.select('p');
+	- 使用ps.each(function(el){el.highlight();});进行遍历每一个p标签
+	- 或者
+	- Ext.select('p').highlight();
+```js
+Ext.application({
+	name: 'demo01',
+	launch: function() {
+		Ext.create('Ext.container.Viewport', {
+			layout: 'fit',
+			items: [{
+				title: 'Hello ExtJS',
+				html: 'Welcome to ExtJS'
+			}]
+		});
+	}
+});
+Ext.onReady(function() {
+	alert('onReady()')
+	//给按钮添加点击事件
+	/*Ext.get('myButton').on('click', function() {
+		alert('You clicked the button!');
+	})*/
+	//给一组标签添加点击事件
+	/*Ext.select('p').on('click', function() {
+		alert('You clicked a paragraph!');
+	})*/
+});
+```
+
+## 2. ExtJS 布局
+- Fit布局
+	- Fit布局中，子元素自动填充整个父容器。
+	- 在Fit布局下，对子元素设置宽度是无效的
+	- 在Fit不居中放置了多个组件，则只会显示第一个子元素
+	- 案例：一个Window或panel中放置一个GRID组件，grid组件的大小会随着父容器的改变而改变。
+```js
+Ext.application({
+	name: 'mmm',
+	launch: function() {
+		Ext.create('Ext.container.Viewport', {
+			layout: 'fit',
+			items: [{
+				title: 'Hello ExtJS',
+				html: 'Welcome to ExtJS'
+			}]
+		});
+	}
+});
+```
+
+[ExtJS框架基础：事件模型及其常用功能
+](https://www.cnblogs.com/willick/p/3169881.html)
+
+## 3. Border 布局
+- Border 布局
+	- 也成边界布局，将页面分成east,west,north,south,center 这五个部分，我们需要在器items中指定使用region参数为其子元素指定具体位置。
+	- south和north智能设置高度(height)
+	- west和east只能设置宽度(width)
+	- north、south、west、east区域变大，center区域就会变小
+	- 参数split:true可以调整，除了center之外的四个区域
+	- 参数collapsible:true将激活折叠功能，title必须设置，因为折叠需要出现标题
+	- center区域是必须使用的，而且center不允许折叠
+	- center区域会自动填充到其他区域的剩余空间
+```js
+Ext.onReady(function() {
+	var viewport = new Ext.Viewport({
+        layout: 'border',//表示使用BorderLayout的布局方式，边界布局，页面分成东西南北中5部分
+        items: [{
+            region: 'north',//指定组建具体位置，上方
+            height: 40,
+            html:'<h1>顶栏</h1><br/><br/>'
+        }, {
+            region: 'west',//左方
+            width: 80,
+            html: '<p>菜单1</p><p>菜单2</p>'
+        }, {
+            region: 'center',
+            html: '显示内容'
+        }]
+    });
+});
+```
+![image-border布局](../image/border布局.png)
+
+## 4. Accordion布局
+- Accordion布局
+	-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
