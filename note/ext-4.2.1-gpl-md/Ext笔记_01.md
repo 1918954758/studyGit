@@ -1,4 +1,4 @@
-## 1. ExtJs:
+## 1. Ext的事件机制:
 - 和事件相关的类
 	- Ext.util.Observable
 	- Ext.lib.Event
@@ -40,7 +40,27 @@ Ext.onReady(function() {
 });
 ```
 
-## 2. ExtJS 布局
+- Ext使用Ext.lib.Event、Ext.EventManager和Ext.EventObject对原生浏览器事件进行了封装，最后给我们用的是一套统一的跨浏览器的通用事件接口
+
+#### 1. Ext.util.Observable
+
+
+
+## 2. 
+
+
+
+
+
+
+
+
+
+
+
+## 3. 布局
+
+#### 1. ExtJS 布局
 - Fit布局
 	- Fit布局中，子元素自动填充整个父容器。
 	- 在Fit布局下，对子元素设置宽度是无效的
@@ -64,7 +84,7 @@ Ext.application({
 [ExtJS框架基础：事件模型及其常用功能
 ](https://www.cnblogs.com/willick/p/3169881.html)
 
-## 3. Border 布局
+#### 2. Border 布局
 - Border 布局
 	- 也成边界布局，将页面分成east,west,north,south,center 这五个部分，我们需要在器items中指定使用region参数为其子元素指定具体位置。
 	- south和north智能设置高度(height)
@@ -95,7 +115,7 @@ Ext.onReady(function() {
 ```
 ![image-border布局](../image/border布局.png)
 
-## 4. Accordion布局
+#### 3. Accordion布局
 - Accordion布局
 	- 也称手风琴布局，在accordion布局下，任何时间里，只有一个面板处于激活状态，其中每个面边都支持展开和折叠。
 ```js
@@ -135,7 +155,56 @@ Ext.application({
 
 ![image-accordion布局](../image/accordion布局.png)
 
+#### 4. card 布局
+```js
+Ext.onReady(function() {
+	var panel = Ext.create('Ext.Window', {
+		autoShow: true,
+		title: 'window',
+		width: 420,
+		height: 400,
+		layout: 'card',
+		activeItem: 0,
+		bbar: [
+			'->',
+			{
+				id: 'card-prev',
+				text: '«上一页',
+				handler: function() {
+					navigate('prev')
+				}
+			},
+			{
+				id: 'card-next',
+				text: '下一页»',
+				handler: function() {
+					navigate('next')
+				}
+			}
+		],
+		items: [{
+			id: 'card1',
+			html: '第一页'
+		}, {
+			id: 'card2',
+			html: '第二页'
+		}, {
+			id: 'card3',
+			html: '第三页'
+		}]
+	});
 
+	function navigate(direction) {
+		var layout = panel.getLayout();
+		if(!(direction === 'prev' && layout.layoutCount === 1)) {
+			layout[direction]();
+			Ext.getCmp('card-prev').setDisabled(!layout.getPrev());
+			Ext.getCmp('card-next').setDisabled(!layout.getNext());
+		}
+	};
+});
+```
+![image-card布局](../image/card布局.png)
 
 
 

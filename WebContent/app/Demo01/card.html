@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ExtJS Demo_01</title>
+<link rel="stylesheet" type="text/css" href="../../ext-4.2.1.883/resources/css/ext-all.css">
+<script type="text/javascript" src="../../ext-4.2.1.883/ext-all.js"></script>
+<script type="text/javascript" src="../../ext-4.2.1.883/locale/ext-lang-zh_CN.js"></script>
+<!-- <script type="text/javascript" src="card.js"></script> -->
+</head>
+<body>
+<script type="text/javascript">
+Ext.onReady(function() {
+	var panel = Ext.create('Ext.Window', {
+		autoShow: true,
+		title: 'window',
+		width: 420,
+		height: 400,
+		layout: 'card',
+		activeItem: 0,
+		bbar: [
+			'->',
+			{
+				id: 'card-prev',
+				text: '«上一页',
+				handler: function() {
+					navigate('prev')
+				}
+			},
+			{
+				id: 'card-next',
+				text: '下一页»',
+				handler: function() {
+					navigate('next')
+				}
+			}
+		],
+		items: [{
+			id: 'card1',
+			html: '第一页'
+		}, {
+			id: 'card2',
+			html: '第二页'
+		}, {
+			id: 'card3',
+			html: '第三页'
+		}]
+	});
+
+	function navigate(direction) {
+		var layout = panel.getLayout();
+		if(!(direction === 'prev' && layout.layoutCount === 1)) {
+			layout[direction]();
+			Ext.getCmp('card-prev').setDisabled(!layout.getPrev());
+			Ext.getCmp('card-next').setDisabled(!layout.getNext());
+		}
+	};
+});
+</script>
+</body>
+</html>
