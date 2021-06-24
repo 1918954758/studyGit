@@ -13,6 +13,7 @@ Ext.define('Pandora.controller.Song', {
     
     init: function() {
         this.control({
+        	//使用 view/RecentlyPlayedScroller.js的alias: 'widget.recentlyplayedscroller',属性
             'recentlyplayedscroller': {
                 selectionchange: this.onSongSelect
             }

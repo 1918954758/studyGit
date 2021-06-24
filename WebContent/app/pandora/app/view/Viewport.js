@@ -12,6 +12,7 @@ Ext.define('Pandora.view.Viewport', {
     
     initComponent: function() {
         this.items = {
+            xtype: 'panel',
             dockedItems: [{
                 dock: 'top',
                 xtype: 'toolbar',
@@ -21,10 +22,11 @@ Ext.define('Pandora.view.Viewport', {
                     width: 150
                 }, {
                     xtype: 'songcontrols',
+                    height: 70,
                     flex: 1
                 }, {
                     xtype: 'component',
-                    html: 'Pandora<br>Internet Radio'
+                    html: 'Panda<br>Internet Radio'
                 }]
             }],
             layout: {
@@ -49,7 +51,6 @@ Ext.define('Pandora.view.Viewport', {
             }, {
                 xtype: 'container',
                 flex: 1,
-                border: false,
                 layout: {
                     type: 'vbox',
                     align: 'stretch'
@@ -63,7 +64,7 @@ Ext.define('Pandora.view.Viewport', {
                 }]
             }]
         };
-        
+ 
         this.callParent();
     }
 });

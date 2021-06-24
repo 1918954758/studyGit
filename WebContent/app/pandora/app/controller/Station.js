@@ -10,9 +10,11 @@ Ext.define('Pandora.controller.Station', {
     
     init: function() {
         this.control({
+        	//使用 StationsList.js 的 alias: 'widget.stationslist', 属性
             'stationslist': {
                 selectionchange: this.onStationSelect
             },
+            //使用 NewStation.js 的 alias: 'widget.newstation', 属性
             'newstation': {
                 select: this.onNewStationSelect
             }
@@ -33,6 +35,7 @@ Ext.define('Pandora.controller.Station', {
     },
     
     onStationSelect: function(selModel, selection) {
+    	// stationstart - 是一个事件名
         this.application.fireEvent('stationstart', selection[0]);
     },
     
