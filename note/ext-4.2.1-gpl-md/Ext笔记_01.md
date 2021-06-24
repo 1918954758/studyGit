@@ -97,7 +97,43 @@ Ext.onReady(function() {
 
 ## 4. Accordion布局
 - Accordion布局
-	-
+	- 也称手风琴布局，在accordion布局下，任何时间里，只有一个面板处于激活状态，其中每个面边都支持展开和折叠。
+```js
+Ext.application({
+	name: 'hello-accordion',
+	launch: function() {
+		Ext.create('Ext.panel.Panel', {
+		    title: 'Accordion Layout',
+		    width: 300,
+		    height: 300,
+		    defaults: {
+		        // applied to each contained panel
+		        bodyStyle: 'padding:15px'
+		    },
+		    layout: {
+		        // layout-specific configs go here
+		        type: 'accordion',
+		        titleCollapse: false,
+		        animate: true,
+		        activeOnTop: true
+		    },
+		    items: [{
+		        title: 'Panel 1',
+		        html: 'Panel content!'
+		    },{
+		        title: 'Panel 2',
+		        html: 'Panel content!'
+		    },{
+		        title: 'Panel 3',
+		        html: 'Panel content!'
+		    }],
+		    renderTo: Ext.getBody()
+		});
+	}
+});
+```
+
+![image-accordion布局](../image/accordion布局.png)
 
 
 
