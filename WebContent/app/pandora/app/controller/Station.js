@@ -5,9 +5,25 @@ Ext.define('Pandora.controller.Station', {
         ref: 'stationsList',
         selector: 'stationslist'
     }],
-
-    stores: ['Stations', 'RecentSongs'],
     
+    stores: ['Stations', 'RecentSongs'],
+    /*
+     * views: ['StationsList']
+	 * creates getter named 'getStationsListView'
+	 * returns reference to StationsList class
+	 * 
+	 * models: ['Station']
+	 * creates getter named 'getStationModel'
+	 * returns reference to Station model class
+	 * 
+	 * controllers: ['Song']
+	 * creates getter named 'getSongController'
+	 * returns the Song controller instance
+	 * 
+	 * stores: ['Stations']
+	 * creates getter named 'getStationsStore'
+	 * returns the Stations store instance
+     */
     init: function() {
         this.control({
         	//使用 StationsList.js 的 alias: 'widget.stationslist', 属性
