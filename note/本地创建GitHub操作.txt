@@ -133,3 +133,17 @@ Windew -> Preferences - General -> Security -> Secure Storage -> Contents -> [De
 	- 上传本地代码到GitHub
 		- git push -u origin master
 		- 此时需要填写用户名和密码
+
+		
+- 配置 eclipse 中  System Settings
+- eclipse中的System Settings配置设置
+	- Window -> ... -> Team -> Git -> Configuration -> System Settings
+- 打开eclipse项目文件夹
+	- 在 .git同一级目录下，使用 Git Bash Here
+	- 执行以下两行代码
+	- git config --global user.name "zi..."
+	- git config --global user.email "...@163.com"
+	- 去 .git/config 文件中复制所有代码
+	- Window -> ... -> Team -> Git -> Configuration -> System Settings -> Open
+	- 将 config 内容 复制到刚打开的gitconfig文件中
+	- 保存即可
