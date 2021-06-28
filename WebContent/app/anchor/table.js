@@ -248,28 +248,17 @@ Ext.onReady(function(){
     	items: [panel]
     });
     
-    //store
+    
     var store = Ext.create('Ext.data.Store', {
-    	fields: ['data_month', 'indc_value'],
+        //sorters: ['name'],
+    	//Overriding the model's default proxy
     	proxy: {
-    		type: 'ajax',
-    		timeout: 300000,
-    		url: '',
-    		reader: {
-    			type: 'json',
-    			root: 'datas'
-    		},
-    		actionMethods: {
-    			read: 'POST'
-    		},
-    		extraParams: {
-    			'queryDate': '20210101', //Ext.getCmp('queryDate').getRawValue(),
-    			'indexValue': '', //Ext.getCmp('indexValue').getRawValue(),
-    			'contentValue': '' //Ext.getCmp('contentValue').getRawValue(),
-    		},
-    		writer: {
-    			type: 'json'
-    		}
+    	    type: 'ajax',
+    	    url: 'data/data01.json',
+    	    reader: {
+    	        type: 'json',
+    	        root: 'results'
+    	    }
     	},
     	autoLoad: true,
     	listeners: {
@@ -287,7 +276,7 @@ Ext.onReady(function(){
     		},
     		load: function(store, records, successful, operation, opts) {
     			if (successful) {
-    				
+    				//datas = '{\'success\': \'true\', \'results\': [{\'nbr\': \'1\', \'dataIndex\': \'1\', \'pty_name\': \'1\', \'lxcb_days\': \'1\', \'ljcb_days\': \'1\', \'indc_value\': \'1\'}]}';
     			} else {
     				Ext.MessageBox.alert('提示', '数据加载失败！');
     			}
@@ -296,31 +285,65 @@ Ext.onReady(function(){
     	}
     });
     
-    //myStore
+    //store
+//    var store = Ext.create('Ext.data.Store', {
+//    	fields: ['data_month', 'indc_value'],
+//    	proxy: {
+//    		type: 'ajax',
+//    		timeout: 300000,
+//    		url: '',
+//    		reader: {
+//    			type: 'json',
+//    			root: 'datas'
+//    		},
+//    		actionMethods: {
+//    			read: 'POST'
+//    		},
+//    		extraParams: {
+//    			'queryDate': '20210101', //Ext.getCmp('queryDate').getRawValue(),
+//    			'indexValue': '', //Ext.getCmp('indexValue').getRawValue(),
+//    			'contentValue': '' //Ext.getCmp('contentValue').getRawValue(),
+//    		},
+//    		writer: {
+//    			type: 'json'
+//    		}
+//    	},
+//    	autoLoad: true,
+//    	listeners: {
+//    		beforeLoad: function(store) {
+//    			msgTip = new Ext.LoadMask(gridChart.getEl(), {
+//    				msg: '查询中...'
+//    			});
+//    			msgTip.show();
+//    			var params = {
+//    					'queryDate': '20210101', //Ext.getCmp('queryDate').getRawValue(),
+//    	    			'indexValue': '', //Ext.getCmp('indexValue').getRawValue(),
+//    	    			'contentValue': '' //Ext.getCmp('contentValue').getRawValue(),
+//    			};
+//    			Ext.apply(store.proxy.extraParams, params);
+//    		},
+//    		load: function(store, records, successful, operation, opts) {
+//    			if (successful) {
+//    				//datas = '{\'success\': \'true\', \'results\': [{\'nbr\': \'1\', \'dataIndex\': \'1\', \'pty_name\': \'1\', \'lxcb_days\': \'1\', \'ljcb_days\': \'1\', \'indc_value\': \'1\'}]}';
+//    			} else {
+//    				Ext.MessageBox.alert('提示', '数据加载失败！');
+//    			}
+//    			msgTip.hide();
+//    		}
+//    	}
+//    });
+    
+    
     var myStore = Ext.create('Ext.data.Store', {
-    	model: 'FinEntityMonVO',
-    	pageSize: 25,
-    	autoLoad: true,
+        //sorters: ['name'],
+    	//Overriding the model's default proxy
     	proxy: {
-    		type: 'ajax',
-    		timeout: 300000,
-    		url: '',
-    		reader: {
-    			type: 'json',
-    			root: 'datas',
-    			totalProperty: 'totalSize'
-    		},
-    		actionMethods: {
-    			read: 'POST'
-    		},
-    		extraParams: {
-    			'queryDate': '20210101', //Ext.getCmp('queryDate').getRawValue(),
-    			'zbCheckValue': '', //Ext.getCmp('indexValue').getRawValue(),
-    			'textValue': '' //Ext.getCmp('contentValue').getRawValue(),
-    		},
-    		writer: {
-    			type: 'json'
-    		}
+    	    type: 'ajax',
+    	    url: 'data/data02.json',
+    	    reader: {
+    	        type: 'json',
+    	        root: 'results'
+    	    }
     	},
     	listeners: {
     		beforeLoad: function(store) {
@@ -333,11 +356,56 @@ Ext.onReady(function(){
     		},
     		load: function(store, records, successful, operation, opts) {
     			if (successful) {
-    				
+    				//datas = '{\'success\': \'true\', \'results\': [{\'data_month\': \'1\', \'indc_value\': \'23\'}]}';
     			} else {
     				Ext.MessageBox.alert('提示', '数据加载失败！');
     			}
     		}
     	}
     });
+    
+    //myStore
+//    var myStore = Ext.create('Ext.data.Store', {
+//    	model: 'FinEntityMonVO',
+//    	pageSize: 25,
+//    	autoLoad: true,
+//    	proxy: {
+//    		type: 'ajax',
+//    		timeout: 300000,
+//    		url: '',
+//    		reader: {
+//    			type: 'json',
+//    			root: 'datas',
+//    			totalProperty: 'totalSize'
+//    		},
+//    		actionMethods: {
+//    			read: 'POST'
+//    		},
+//    		extraParams: {
+//    			'queryDate': '20210101', //Ext.getCmp('queryDate').getRawValue(),
+//    			'zbCheckValue': '', //Ext.getCmp('indexValue').getRawValue(),
+//    			'textValue': '' //Ext.getCmp('contentValue').getRawValue(),
+//    		},
+//    		writer: {
+//    			type: 'json'
+//    		}
+//    	},
+//    	listeners: {
+//    		beforeLoad: function(store) {
+//    			var params = {
+//					'queryDate': '20210101', //Ext.getCmp('queryDate').getRawValue(),
+//	    			'zbCheckValue': '1, 1, 1', //Ext.getCmp('indexValue').getRawValue(),
+//	    			'textValue': '' //Ext.getCmp('contentValue').getRawValue(),
+//    			};
+//    			Ext.apply(store.proxy.extraParams, params);
+//    		},
+//    		load: function(store, records, successful, operation, opts) {
+//    			if (successful) {
+//    				//datas = '{\'success\': \'true\', \'results\': [{\'data_month\': \'1\', \'indc_value\': \'23\'}]}';
+//    			} else {
+//    				Ext.MessageBox.alert('提示', '数据加载失败！');
+//    			}
+//    		}
+//    	}
+//    });
 }); 

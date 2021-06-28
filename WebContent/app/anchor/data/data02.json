@@ -1,0 +1,13 @@
+{
+    'success': true,    
+    'results': [
+        {
+        	'nbr': '1', 
+        	'dataIndex': '1',
+        	'pty_name': '1',
+        	'lxcb_days': '1',
+        	'ljcb_days': '1',
+        	'indc_value': '1'
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    'success': true,    
+    'results': [
+        {'data_month': '1', 'indc_value': '23'}
+    ]
+}
