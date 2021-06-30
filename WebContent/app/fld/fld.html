@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ExtJS Demo_01</title>
+<link rel="stylesheet" type="text/css" href="../../ext-4.2.1.883/resources/css/ext-all.css">
+<script type="text/javascript" src="../../ext-4.2.1.883/ext-all.js"></script>
+<script type="text/javascript" src="fld.js"></script>
+</head>
+<body>
+
+	<!-- 以下代码直接访问HTML可用 -->
+	<!-- <script>
+		Ext.onReady(function(){
+		 	Ext.define('graphData',{
+				extend:'Ext.data.Model',
+				fields:[
+					{name:'graphName',type:'string'},
+					{name:'graphData',type:'int'}
+				]
+			});
+			var graphDataStore=Ext.create('Ext.data.Store',{
+				model:'graphData',
+				data:[
+					{graphName:"1月",graphData:700},
+					{graphName:"2月",graphData:800},
+					{graphName:"3月",graphData:600},
+					{graphName:"4月",graphData:500}	
+				]
+			});
+			var chart = new Ext.chart.Chart({
+				//以下四项必须指定。否则无法显示。
+				width: 480,
+				height: 320,
+				store: graphDataStore,
+				renderTo: Ext.getBody(),
+				axes: [{//声明左轴与底轴分别是什么
+					type: 'Numeric',
+					position: 'left',
+					fields: 'graphData'
+				}, {
+					type: 'Category',
+					position: 'bottom',
+					fields: 'graphName'
+				}],
+				series: [{//声明填充x与y轴的数据分别是什么
+					type: 'line',
+					axis: 'left',
+					xField: 'graphName',
+					yField: 'graphData'
+				}]
+			});
+		});
+	</script> -->
+</body>
+</html>

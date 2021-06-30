@@ -1,0 +1,9 @@
+{  
+	'success':true,
+	'data':[  
+		{graphName:"1月",graphData:700},
+		{graphName:"2月",graphData:800},
+		{graphName:"3月",graphData:600},
+		{graphName:"4月",graphData:500}	
+	]
+}
