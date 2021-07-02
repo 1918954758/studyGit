@@ -7,7 +7,7 @@ Ext.define('Pandora.store.SearchResults', {
 	//Overriding the model's default proxy
 	proxy: {
 	    type: 'ajax',
-	    url: 'data/searchresults.json',
+	    url: '/shopping1.0/app/pandora/data/searchresults.json',
 	    reader: {
 	        type: 'json',
 	        root: 'results'

@@ -4,7 +4,7 @@ Ext.define('Pandora.model.Song', {
     
     proxy: {
         type: 'ajax',
-        url: 'data/songs.json',
+        url: '/shopping1.0/app/pandora/data/songs.json',
         reader: {
             type: 'json',
             root: 'results'
