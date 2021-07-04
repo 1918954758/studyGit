@@ -10,32 +10,6 @@
 		}
 	});
 	Ext.onReady(function() {
-//		var win = new Ext.window.Window({
-//			width: 400,
-//			height: 300,
-//			title: 'zichen'
-//		});
-//		
-//		Ext.get('zi').on('click', function() {
-//			win.show();
-//		})
-		
-		
-//		var o = {
-//			say: function() {
-//				alert(1111);
-//			}
-//		}
-//		var fn = Ext.Function.alias(o, 'say');
-//		fn();
-		
-//		var win = Ext.create('Ext.window.Window', {
-//			width: 400,
-//			height: 300,
-//			title: 'zichen'
-//		});
-//		win.show();
-		
 		//实例化定义的类
 		var mywin = Ext.create('ux.myWin', {
 			title: 'ZICHEN',
@@ -49,5 +23,32 @@
 			mywin.setPrice(700);
 			alert(mywin.getPrice());
 		})
+		
+		Ext.define('say', {
+			cansay: function() {
+				alert('hello');
+			}
+		})
+		
+		Ext.define('sing', {
+			sing: function() {
+				alert('sing');
+			}
+		})
+		Ext.define('user', {
+			//extend: 'say',//也可以达到将say类引入进来
+			//extend: ['say', 'sing'], 如果有两个类要引入进来，使用这种方法就不可以，单继承，不可以多个方法继承
+			mixins: {//混合，可以将其他定义的方法混合进来
+				say: 'say',
+				sing: 'sing'
+			}
+		})
+		
+		var u = Ext.create('user', {
+			
+		});
+		
+		u.cansay();
+		u.sing();
 	});
 })();

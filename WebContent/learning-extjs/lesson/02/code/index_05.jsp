@@ -12,7 +12,7 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/ext-4.2.1.883/examples/shared/options-toolbar.js"></script>
     <!-- </x-bootstrap> -->
     <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/learning-extjs/lesson/02/code/ux/mywin.js"></script> --%>
-    <script type="text/javascript" src="index_04.js"></script>
+    <script type="text/javascript" src="index_05.js"></script>
     
 </head>
 <body>

@@ -1,19 +1,22 @@
-# 1. JS ç±»çš„å£°æ˜Žå’Œå¯¹è±¡çš„åˆ›å»º
+# 1. JS ÀàµÄÉùÃ÷ºÍ¶ÔÏóµÄ´´½¨
 
-# 2. åŽŸå§‹æ–¹æ³•ç”¨ExtJSåˆ›å»ºä¸€ä¸ªwindow
+# 2. Ô­Ê¼·½·¨ÓÃExtJS´´½¨Ò»¸öwindow
 
-# 3. åˆ©ç”¨ä¸€ä¸ªæŒ‰é’®è§¦å‘windowçª—ä½“ï¼Œäº†è§£ä¸€ä¸‹ExtJSçš„äº‹ä»¶æœºåˆ¶
+# 3. ÀûÓÃÒ»¸ö°´Å¥´¥·¢window´°Ìå£¬ÁË½âÒ»ÏÂExtJSµÄÊÂ¼þ»úÖÆ
 
-# 4. åˆ©ç”¨ExtJSçš„createæ¥åˆ›å»ºä¸€ä¸ªwindow
+# 4. ÀûÓÃExtJSµÄcreateÀ´´´½¨Ò»¸öwindow
 
-# 5. åˆ©ç”¨defineè‡ªå®šä¹‰ç±»ï¼Œå¹¶ä¸”ç»§æ‰¿ï¼ˆextendï¼‰ window
-	//æž„é€ å™¨
+# 5. ÀûÓÃdefine×Ô¶¨ÒåÀà£¬²¢ÇÒ¼Ì³Ð£¨extend£© window
+	//¹¹ÔìÆ÷
 	initComponent: function() {
 		this.callParent(arguments);
 	}
 	
-# 6. requires JSçš„å¼‚æ­¥åŠ è½½
+# 6. requires JSµÄÒì²½¼ÓÔØ
+## 6.1. requires Òì²½¼ÓÔØjsÎÄ¼þ£¨ExtÀàÎÄ¼þ£¬ÎÄ¼þÃûºÍÀàÃû×îºÃ±£³ÖÒ»ÖÂ£¬¶ÔÓÚ²»Í¬µÄExtJS°æ±¾¿ÉÄÜ»áÓÐÎÊÌâ£©
 
-# 7. config è‡ªåŠ¨çš„getå’Œsetæ–¹æ³•
+# 7. config ×Ô¶¯µÄgetºÍset·½·¨
+## 7.1. config ÀàµÄÅäÖÃÏî£¬Àà¼ÓÔØÖ®ºó£¬»á×Ô¶¯ÎªÅäÖÃÏîÖÐµÄÊôÐÔÉú³É¶ÔÓ¦µÄgetºÍset·½·¨
 
-# 8. mixins ç±»çš„æ··åˆ
+# 8. mixins ÀàµÄ»ìºÏ
+## 8.1. Èç¹ûÒªÒýÈëµ¥¸öÀà£¬mixinsµÄ×÷ÓÃºÍextendµÄ×÷ÓÃÒ»Ñù£¬Èç¹ûÒªÒýÈë¶à¸öÀà£¬ÄÇÃ´extendÎÞ·¨×öµ½£¨extendÖ»ÄÜ¼Ì³ÐÒ»¸öÀà£©
