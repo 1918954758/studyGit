@@ -1,0 +1,7 @@
+{
+	'success': true,
+	'datas': [
+		{name: 'Ed', age: 1, email: 'ed@sencha.com'},
+        {name: 'Tommy', age: 2, email: 'tommy@sencha.com'}
+	}
+}
