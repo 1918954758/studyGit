@@ -1,14 +1,14 @@
 Ext.onReady(function(){    
     var panel = new Ext.Panel({   
        renderTo: Ext.getBody(),   
-       //title:'å®¹å™¨ç»„ä»¶',   
+       //title:'ÈİÆ÷×é¼ş',   
        layout:'table',
        width:1000,   
        height:500,   
-       //layoutConfig:{columns: 2},//å°†çˆ¶å®¹å™¨åˆ†æˆ3åˆ—   
+       //layoutConfig:{columns: 2},//½«¸¸ÈİÆ÷·Ö³É3ÁĞ   
        items:[
     	   {
-    		   //title:'å…ƒç´ 1',
+    		   //title:'ÔªËØ1',
     		   html:'a',
     		   rowspan: 1,
     		   colspan: 1,
@@ -19,16 +19,16 @@ Ext.onReady(function(){
     			   {
     				   width: 500,    
         			   height: 250,     
-        			   title: "ä¸Š",
+        			   title: "ÉÏ",
         			   items: [gridPanel_11]
     			   },{
     				   width: 500,    
         			   height: 250,     
-        			   title: "ä¸‹",
+        			   title: "ÏÂ",
         			   items: [gridChart_21]
     			   }]
     	   }, {
-    		   //title:'å…ƒç´ 2',
+    		   //title:'ÔªËØ2',
     		   html:'b',
     		   rowspan: 1,
     		   colspan: 1,
@@ -39,23 +39,23 @@ Ext.onReady(function(){
     			   {
     				   width: 500,    
         			   height: 250,    
-        			   title: "ä¸Š",
+        			   title: "ÉÏ",
         			   items: [gridChart_12]
     			   },{
     				   width: 500,    
         			   height: 250,    
-        			   title: "ä¸‹",
+        			   title: "ÏÂ",
         			   items: [gridChart_22]
     			   }]
     	   }]   
       }); 
     
-    //å·¦ä¸Šè§’å±•ç¤ºå†…å®¹
+    //×óÉÏ½ÇÕ¹Ê¾ÄÚÈİ
     var gridPanel_11 = Ext.create('Ext.grid.Panel', {
     	width: '100%',
     	height: '100%',
     	viewConfig: {
-    		loadingText: 'æŸ¥è¯¢ä¸­...'
+    		loadingText: '²éÑ¯ÖĞ...'
     	},
     	store: myStore,
     	sortableColumns: false,
@@ -64,22 +64,22 @@ Ext.onReady(function(){
     	disableSelection: true,
     	columns: [
     		{
-    			text: 'åºå·', dataIndex: 'nbr', sortable: true, hidden: true, width: 0
+    			text: 'ĞòºÅ', dataIndex: 'nbr', sortable: true, hidden: true, width: 0
     		},
     		{
-    			text: 'å­˜é‡å€ºåˆ¸ä½™é¢', dataIndex: 'merg_type', align: 'center', sortable: false, width: '20%'
+    			text: '´æÁ¿Õ®È¯Óà¶î', dataIndex: 'merg_type', align: 'center', sortable: false, width: '20%'
     		},
     		{
-    			text: 'ä¸Šå¸‚å…¬å¸ä»£ç ', dataIndex: 'pty_name', align: 'center', sortable: false, width: '20%'
+    			text: 'ÉÏÊĞ¹«Ë¾´úÂë', dataIndex: 'pty_name', align: 'center', sortable: false, width: '20%'
     		},
     		{
-    			text: 'ä¸Šå¸‚å…¬å¸ç®€ç§°', dataIndex: 'lxcb_days', align: 'center', sortable: false, width: '20%'
+    			text: 'ÉÏÊĞ¹«Ë¾¼ò³Æ', dataIndex: 'lxcb_days', align: 'center', sortable: false, width: '20%'
     		},
     		{
-    			text: 'ç¬¬å‡ åè‚¡ä¸œ', dataIndex: 'ljcb_days', align: 'center', sortable: false, width: '20%'
+    			text: 'µÚ¼¸Ãû¹É¶«', dataIndex: 'ljcb_days', align: 'center', sortable: false, width: '20%'
     		},
     		{
-    			text: 'ä¸šåŠ¡æ¸ é“', dataIndex: 'indc_value', align: 'center', sortable: false, width: '20%'
+    			text: 'ÒµÎñÇşµÀ', dataIndex: 'indc_value', align: 'center', sortable: false, width: '20%'
     		}
     	],
     	forceFit: false,
@@ -92,23 +92,23 @@ Ext.onReady(function(){
 //    				
 //    			}
 //    		}),
-    		displayMsg: 'æ˜¾ç¤ºç¬¬{0} - {1} æ¡ï¼Œæ€»å…± {2} æ¡',
-    		emptyMsg: 'æ²¡æœ‰æ•°æ®'
+    		displayMsg: 'ÏÔÊ¾µÚ{0} - {1} Ìõ£¬×Ü¹² {2} Ìõ',
+    		emptyMsg: 'Ã»ÓĞÊı¾İ'
     	})
     });
-    //å·¦ä¸‹è§’å±•ç¤ºå†…å®¹
+    //×óÏÂ½ÇÕ¹Ê¾ÄÚÈİ
     var gridChart_21 = Ext.create('Ext.chart.Chart', {
     	renderTo: Ext.getBody(),
     	height: 250,
     	width: 500,
-    	animate: false, //åŠ¨ç”»æ•ˆæœ
+    	animate: false, //¶¯»­Ğ§¹û
     	store: store,
-    	//é…ç½®è½´
+    	//ÅäÖÃÖá
     	axes: [{
     		type: 'Numeric',
     		position: 'left',
-    		fields: ['indc_value'],//ä¸šåŠ¡æ¸ é“
-    		title: 'æŒ‡æ ‡å€¼-a',
+    		fields: ['indc_value'],//ÒµÎñÇşµÀ
+    		title: 'Ö¸±êÖµ-a',
     		grid: {
     			odd: {
     				opacity: 1,
@@ -122,8 +122,8 @@ Ext.onReady(function(){
     	}, {
     		type: 'Category',
     		position: 'bottom',
-    		fields: ['data_month'], //storeä¸­
-    		title: 'æœˆä»½'
+    		fields: ['data_month'], //storeÖĞ
+    		title: 'ÔÂ·İ'
     	}],
     	series: [{
     		type: 'column',
@@ -143,19 +143,19 @@ Ext.onReady(function(){
     		}
     	}]
     });
-    //å³ä¸Šè§’å±•ç¤ºå†…å®¹
+    //ÓÒÉÏ½ÇÕ¹Ê¾ÄÚÈİ
     var gridChart_12 = Ext.create('Ext.chart.Chart', {
     	renderTo: Ext.getBody(),
     	height: 250,
     	width: 500,
-    	animate: false, //åŠ¨ç”»æ•ˆæœ
+    	animate: false, //¶¯»­Ğ§¹û
     	store: store,
-    	//é…ç½®è½´
+    	//ÅäÖÃÖá
     	axes: [{
     		type: 'Numeric',
     		position: 'left',
-    		fields: ['indc_value'],//ä¸šåŠ¡æ¸ é“
-    		title: 'æŒ‡æ ‡å€¼-b',
+    		fields: ['indc_value'],//ÒµÎñÇşµÀ
+    		title: 'Ö¸±êÖµ-b',
     		grid: {
     			odd: {
     				opacity: 1,
@@ -169,8 +169,8 @@ Ext.onReady(function(){
     	}, {
     		type: 'Category',
     		position: 'bottom',
-    		fields: ['data_month'], //storeä¸­
-    		title: 'æœˆä»½'
+    		fields: ['data_month'], //storeÖĞ
+    		title: 'ÔÂ·İ'
     	}],
     	series: [{
     		type: 'column',
@@ -190,19 +190,19 @@ Ext.onReady(function(){
     		}
     	}]
     });
-    //å³ä¸‹è§’å±•ç¤ºå†…å®¹
+    //ÓÒÏÂ½ÇÕ¹Ê¾ÄÚÈİ
 	var gridChart_22 = Ext.create('Ext.chart.Chart', {
     	renderTo: Ext.getBody(),
     	height: 250,
     	width: 500,
-    	animate: false, //åŠ¨ç”»æ•ˆæœ
+    	animate: false, //¶¯»­Ğ§¹û
     	store: store,
-    	//é…ç½®è½´
+    	//ÅäÖÃÖá
     	axes: [{
     		type: 'Numeric',
     		position: 'left',
-    		fields: ['indc_value'],//ä¸šåŠ¡æ¸ é“
-    		title: 'æŒ‡æ ‡å€¼-c',
+    		fields: ['indc_value'],//ÒµÎñÇşµÀ
+    		title: 'Ö¸±êÖµ-c',
     		grid: {
     			odd: {
     				opacity: 1,
@@ -216,8 +216,8 @@ Ext.onReady(function(){
     	}, {
     		type: 'Category',
     		position: 'bottom',
-    		fields: ['data_month'], //storeä¸­
-    		title: 'æœˆä»½'
+    		fields: ['data_month'], //storeÖĞ
+    		title: 'ÔÂ·İ'
     	}],
     	series: [{
     		type: 'column',
@@ -264,7 +264,7 @@ Ext.onReady(function(){
     	listeners: {
     		beforeLoad: function(store) {
     			msgTip = new Ext.LoadMask(gridChart.getEl(), {
-    				msg: 'æŸ¥è¯¢ä¸­...'
+    				msg: '²éÑ¯ÖĞ...'
     			});
     			msgTip.show();
     			var params = {
@@ -278,7 +278,7 @@ Ext.onReady(function(){
     			if (successful) {
     				//datas = '{\'success\': \'true\', \'results\': [{\'nbr\': \'1\', \'dataIndex\': \'1\', \'pty_name\': \'1\', \'lxcb_days\': \'1\', \'ljcb_days\': \'1\', \'indc_value\': \'1\'}]}';
     			} else {
-    				Ext.MessageBox.alert('æç¤º', 'æ•°æ®åŠ è½½å¤±è´¥ï¼');
+    				Ext.MessageBox.alert('ÌáÊ¾', 'Êı¾İ¼ÓÔØÊ§°Ü£¡');
     			}
     			msgTip.hide();
     		}
@@ -312,7 +312,7 @@ Ext.onReady(function(){
 //    	listeners: {
 //    		beforeLoad: function(store) {
 //    			msgTip = new Ext.LoadMask(gridChart.getEl(), {
-//    				msg: 'æŸ¥è¯¢ä¸­...'
+//    				msg: '²éÑ¯ÖĞ...'
 //    			});
 //    			msgTip.show();
 //    			var params = {
@@ -326,7 +326,7 @@ Ext.onReady(function(){
 //    			if (successful) {
 //    				//datas = '{\'success\': \'true\', \'results\': [{\'nbr\': \'1\', \'dataIndex\': \'1\', \'pty_name\': \'1\', \'lxcb_days\': \'1\', \'ljcb_days\': \'1\', \'indc_value\': \'1\'}]}';
 //    			} else {
-//    				Ext.MessageBox.alert('æç¤º', 'æ•°æ®åŠ è½½å¤±è´¥ï¼');
+//    				Ext.MessageBox.alert('ÌáÊ¾', 'Êı¾İ¼ÓÔØÊ§°Ü£¡');
 //    			}
 //    			msgTip.hide();
 //    		}
@@ -358,7 +358,7 @@ Ext.onReady(function(){
     			if (successful) {
     				//datas = '{\'success\': \'true\', \'results\': [{\'data_month\': \'1\', \'indc_value\': \'23\'}]}';
     			} else {
-    				Ext.MessageBox.alert('æç¤º', 'æ•°æ®åŠ è½½å¤±è´¥ï¼');
+    				Ext.MessageBox.alert('ÌáÊ¾', 'Êı¾İ¼ÓÔØÊ§°Ü£¡');
     			}
     		}
     	}
@@ -403,7 +403,7 @@ Ext.onReady(function(){
 //    			if (successful) {
 //    				//datas = '{\'success\': \'true\', \'results\': [{\'data_month\': \'1\', \'indc_value\': \'23\'}]}';
 //    			} else {
-//    				Ext.MessageBox.alert('æç¤º', 'æ•°æ®åŠ è½½å¤±è´¥ï¼');
+//    				Ext.MessageBox.alert('ÌáÊ¾', 'Êı¾İ¼ÓÔØÊ§°Ü£¡');
 //    			}
 //    		}
 //    	}
