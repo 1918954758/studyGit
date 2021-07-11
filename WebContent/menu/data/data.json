@@ -1,0 +1,53 @@
+[
+    {
+        "id": "2",
+        "text": "用户管理",
+        "leaf": false,
+        "url": "http:\/\/www.lihuai.net",
+        "children": [
+            {
+                "id": "5",
+                "text": "基本信息",
+                "leaf": true,
+                "url": "http:\/\/www.sogou.com",
+                "children": ""
+            },
+            {
+                "id": "11",
+                "text": "信息管理",
+                "leaf": true,
+                "url": "http:\/\/www.sogou.com",
+                "children": ""
+            },
+            {
+                "id": "12",
+                "text": "添加用户",
+                "leaf": true,
+                "url": "http:\/\/www.sogou.com",
+                "children": ""
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "text": "产品管理",
+        "leaf": false,
+        "url": "http:\/\/www.so.com",
+        "children": [
+            {
+                "id": "7",
+                "text": "产品信息",
+                "leaf": true,
+                "url": "http:\/\/www.so.com",
+                "children": ""
+            },
+            {
+                "id": "8",
+                "text": "产品添加",
+                "leaf": true,
+                "url": "http:\/\/www.so.com",
+                "children": ""
+            }
+        ]
+    }
+]
