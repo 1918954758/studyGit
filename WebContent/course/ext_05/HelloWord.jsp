@@ -1,14 +1,3 @@
-# 1. Ext.js 概述
-
-# 2. Ext.js 环境设置
-
-# 3. Ext.js 命名约定
-
-# 4. Ext.js 架构
-
-# 5. Ext.js 第一个程序
-
-```jsp
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
@@ -41,47 +30,3 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	<div id="helloWorldPanel"></div>
 </body>
 </html>
-```
-
-- Explanation
-  - Ext.onReady() 方法将在 ExtJS 准备好渲染 ExtJS 元素时调用
-  - Ext.create() 方法用于在 ExtJS 中创建对象，这里我们创建一个简单的面板类 Ext.panel.Panel 的对象
-  - Ext.panel.Panel 是 ExtJS 中用于创建面板的预定义类
-  - 每个 ExtJS 类都有不同的属性来执行一些基本的功能
-- Ext.panel.Panel 类有以下各种属性
-  - renderTo: 'helloWorldPanel' 是此面板必须呈现的元素。helloWorldPanel 是jsp中的div id
-  - height/width 用于提供面板的自定义尺寸
-  - title 为面板提供标题
-  - html 在面板中显示的HTML内容
-
-
-
-# 6. Ext.js Class系统
-
-# 7. Ext.js 集装箱
-
-# 8. Ext.js 布局
-
-# 9. Ext.js 组件
-
-# 10. Ext.js 拖放
-
-# 11. Ext.js 主题
-
-# 12. Ext.js 自定义事件和监听器
-
-# 13. Ext.js 数据
-
-# 14. Ext.js 字体
-
-# 15. Ext.js 风格
-
-# 16. Ext.js 图像
-
-# 17. Ext.js 本地化
-
-# 18. Ext.js 可访问性
-
-# 19. Ext.js 调试代码
-
-# 20. Ext.js 方法
