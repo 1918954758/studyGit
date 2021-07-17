@@ -58,7 +58,366 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 # 6. Ext.js Class系统
 
+- Ext JS 是一个 JavaScript 框架，它具有面向对象编程的功能。
+- Ext 是封装 Ext JS 中所有类的命名空间
+
+##  1. 在Ext JS 中定义类
+
+- Ext 提供了300多个类，我们可以使用各种功能
+- Ext.define() 用于在 Ext JS 中定义类
+
+## 2. 语法
+
+>Ext.define(class name, class members/properties, callback function);
+
+类名称是根据应用程序结构的类名称。appName.folderName.ClassName
+
+studentApp.view.StudentView。
+
+类属性/成员 - 定义类的行为。
+
+回调函数是可选的。当类正确加载时，会调用它。
+
+## 3. Ext JS 类定义示例
+
+```javascript
+Ext.define(studentApp.view.StudentDetailsGrid, {
+    extend: 'Ext.grid.GridPanel',
+    id: 'studentsDetailsGridPanel',
+    store: 'StudentsDetailsGridStore',
+    renderTo: 'studentsDetailsRenderDiv',
+    layout: 'fit',
+    columns: [{
+        text: 'Student Name',
+        dataIndex: 'studentName'
+    }, {
+        text: 'ID',
+        dataIndex: 'studentId'
+    }, {
+        text: 'Department',
+        dataIndex: 'department'
+    }]
+});
+```
+
+
+
+## 4. 创建对象
+
+- 像其他语言一样，我们也可以在 Ext JS 中创建对象。
+
+- 不同的方式创建对象在 Ext JS
+
+- 使用 new 关键字：
+
+  > ```javascript
+  > var studentObject = new student();
+  > studentObject.getStudentName();
+  > ```
+
+- 使用 Ext.create();
+
+  > ```javascript
+  > Ext.create('Ext.Panel', {
+  >     renderTo: 'helloWorldPanel',
+  >     height: 100,
+  >     width: 100,
+  >     title: 'Hello World',
+  >     html: 'First Ext JS Hello Program'
+  > });
+  > ```
+
+
+
+## 5. Ext JS中的继承
+
+- 继承是将类A中定义的功能用于类B的原理。
+
+- 在 Ext JS 继承可以使用两种方法：
+
+- Ext.extend:
+
+  > ```javascript
+  > Ext.define(studentApp.view.StudentDetailsGrid, {
+  >     extend: 'Ext.grid.GridPanel',
+  >     ...
+  > });
+  > ```
+
+- 这里我们自定义类StudentDetailsGrid使用 Ext JS 类 GridPanel 的基本功能。
+
+- Mixins:
+
+  > ```JAVASCRIPT
+  > mixins: {
+  >     commons: 'DepartmentApp.utils.DepartmentUtils'
+  > }
+  > ```
+
+- Mixins 是在没有扩展的情况下，在类B中使用类A的不同方式。（也可以在类B中使用更多的类的功能）
+
+
+
 # 7. Ext.js 集装箱
+
+## 1. 容器
+
+- Ext JS 中的容器使我们可以添加其他容器或子组件的组件。
+- 这些容器可以具有多个布局，已将不见不止在容器中。
+- 我们可以从容器和其子元素添加或删除组件。
+- Ext.container.Container 是 Ext JS 中所有容器的基类。
+
+![Ext JS容器结构](image/container.png)
+
+## 2. Ext JS 容器内的组件
+
+###  1. 描述
+
+- 容器中的组件： 我们可以在容器内部有多个组件
+
+### 2. 语法
+
+> ```javascript
+> var component1 = Ext.create('Ext.Component', {
+>     html: 'First Component'
+> });
+> Ext.create('Ext.container.Container', {
+>     renderTo: Ext.getBody(),
+>     items: [component1]
+> });
+> ```
+
+- 我们可以将组件作为容器中的项目
+
+### 3. 例
+
+- 以下是显示容器内部组件的简单实例
+
+> ```html
+> <!DOCTYPE html>
+> <html>
+>     <head>
+>     	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+>     	<title>Line Chart</title>
+>     	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+>     	<!-- GC -->
+>     	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
+> 
+>     <script type="text/javascript" src="Container.js"></script>
+>     </head>
+>     <body>
+>         <script type="text/javascript">
+>         	Ext.onReady(function() {
+>                 var component1 = Ext.create('Ext.Component', {
+>                     html: 'First Compoent'
+>                 });
+>                 var component2 = Ext.create('Ext.Component', {
+>                     html: 'Second Component'
+>                 });
+>                 var component3 = Ext.create('Ext.Component', {
+>                     html: 'Third Component'
+>                 });
+>                 Ext.create('Ext.container.Container', {
+>                     renderTo: Ext.getBody(),
+>                     title: 'Container',
+>                     border: 1,
+>                     width: '50%',
+>                     style: {
+>                         borderStyle: 'solid', 
+>                         borderWidth: '2px'
+>                     },
+>                     items: [component1, component2, component3]
+>                 });
+>             });
+>         </script>
+>     </body>
+> </html>
+> ```
+
+![result](image/containertest1.png)
+
+## 3. Ext JS 容器内的容器
+
+### 1. 描述
+
+- 容器内的容器：我们可以再其他容器内部的容器作为父容器的组件以及其他组件。
+
+### 2. 语法
+
+> ```javascript
+> var container = Ext.create('Ext.container.Container', {
+>     items: [component3, component4]
+> });
+> Ext.create('Ext.container.Container', {
+>     renderTo: Ext.getBody(),
+>     items: [container]
+> });
+> ```
+>
+> 
+
+### 3. 例
+
+```javascript
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<title>Line Chart</title>
+    	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    	<!-- GC -->
+    	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
+
+    <script type="text/javascript" src="Container.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        	Ext.onReady(function () {
+         		var component1 = Ext.create('Ext.Component', {
+            		html:'First Component'
+         		});
+
+        		 var component2 = Ext.create('Ext.Component', {
+            		html: 'Second Component'
+         		});
+
+         		var component3 = Ext.create('Ext.Component', {
+           	 		html: 'Third Component'
+         		});
+
+         		var component4 = Ext.create('Ext.Component', {
+            		html: 'Fourth Component'
+         		});
+
+         		var container = Ext.create('Ext.container.Container', {
+            		style: {borderStyle: 'solid', borderWidth: '2px' },
+            		width: '50%',
+            		items: [component3, component4]
+         		});
+
+                 Ext.create('Ext.container.Container', {
+                    renderTo: Ext.getBody(),
+                    title: 'Container',
+                    border: 1,
+                    width: '50%',
+                    style: {borderStyle: 'solid', borderWidth: '2px' },
+                    items: [component1, component2,  container]
+                 });
+              });
+        </script>
+    </body>
+</html>
+```
+
+![容器中放容器](image/container_in_container.png)
+
+
+
+## 4. 其他容器
+
+### 1. Ext.panel.Panel
+
+### 1. 描述
+
+Ext.panel.Panel：允许在正常面板中添加项目的基本容器
+
+### 2. 语法
+
+> ```javascript
+> Ext.create('Ext.panel.Panel', {
+>     //this way we can add differnt child elements to the container as container items.
+>     items: [child1, child2]
+> });
+> ```
+
+### 3. 例
+
+```javascript
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<title>Line Chart</title>
+    	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    	<!-- GC -->
+    	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
+
+    <script type="text/javascript" src="Container.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        	Ext.onReady(function () {
+         		var childPanel1 = Ext.create('Ext.panel.Panel', {
+                    html: 'First Panel'
+                });
+            	var childPanel2 = Ext.create('Ext.panel.Panel', {
+                    html: 'Another Panel'
+                });
+            	Ext.create('Ext.panel.Panel', {
+                    renderTo: Ext.getBody(),
+                    width: 100,
+                    height: 100,
+                    border: true,
+                    frame: true,
+                    items: [childPanel1, childPanel2]
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+
+![Ext.panel.Panel](image/panel_Panel.png)
+
+
+
+### 2. Ext.form.Panel
+
+### 1. 描述
+
+
+
+### 2. 语法
+
+
+
+### 3. 例
+
+
+
+
+
+### 3. Ext.tab.Panel
+
+### 1. 描述
+
+
+
+### 2. 语法
+
+
+
+### 3. 例
+
+
+
+
+
+### 4. Ext.container.ViewPort
+
+### 1. 描述
+
+
+
+### 2. 语法
+
+
+
+### 3. 例
+
+
+
+
 
 # 8. Ext.js 布局
 
