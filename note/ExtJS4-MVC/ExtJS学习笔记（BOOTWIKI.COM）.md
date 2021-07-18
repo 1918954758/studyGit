@@ -568,6 +568,116 @@ Ext.panel.Panel：允许在正常面板中添加项目的基本容器
 
 # 13. Ext.js 数据
 
+- 数据包用于加载和保存应用程序中的所有数据。
+- 数据包有许多类，但最重要的类是：
+  - 模态（model），也叫模型
+  - 商店（store）
+  - 代理（proxy）
+
+## 1. 模型
+
+- model 的基类是 Ext.data.Model.It 表示应用程序中的一个实体，它将存储数据绑定到视图。它有后端数据对象到视图 dataIndex 的映射。在store 的帮助下获取数据。
+
+## 2. 创建模型
+
+- 为了创建一个模型，我们需要扩展 Ext.data.Model 类，我们需要定义字段的名称和映射。
+
+> ```javascript
+> Ext.create('StudentDataModel', {
+>     extend: 'Ext.data.Model',
+>     fields: [{
+>         name: 'name',
+>         mapping: 'name'
+>     }, {
+>         name: 'age',
+>         mapping: 'age'
+>     }, {
+>         name: 'marks',
+>         mapping: 'marks'
+>     }]
+> });
+> ```
+
+- 这里的名称应该与我们在视图中声明的 dataIndex 相同，并且映射应该匹配使用 store 从数据库获取的静态或动态数据。
+
+## 3. 商店
+
+- store 的基类是 Ext.data.Store。它包含本地缓存的数据，该数据将在模型对象的帮助下，在视图上呈现。存储使用代理获取数据，代理具有为服务定义的路径以获取后端数据。
+
+## 4. 静态存储
+
+- 对于静态存储，我们将存储在存储中的所有数据如下：
+
+> ```javascript
+> Ext.create('Ext.data.Store', {
+>     model: 'StudentDataModel',
+>     data: [{
+>         name: 'Asha',
+>         age: '16',
+>         marks: '90'
+>     }, {
+>         name: 'Vinit',
+>         age: '18',
+>         marks: '95'
+>     }, {
+>         name: 'Anand',
+>         age: '20',
+>         marks: '68'
+>     }, {
+>         name: 'Niharika',
+>         age: '21',
+>         marks: '86'
+>     }, {
+>         name: 'Manali',
+>         age: '22'.
+>         marks: '57'
+>     }]
+> });
+> ```
+
+## 5. 动态存储
+
+- 可以使用代理获取动态数据。我们可以让代理可以从Ajax、Rest和Json获取数据。
+
+## 6. 代理
+
+- 代理的基类是 Ext.data.proxy.Proxy。代理由模型和商店用于处理模型数据的加载和保存。
+- 代理由两种类型：
+  - 客户端代理
+  - 服务端代理
+
+## 7. 客户端代理
+
+- 客户端代理包括使用HTML5本地存储的内存和本地存储
+
+## 8. 服务器代理
+
+- 服务器代理使用Ajax，Json数据和Rest服务处理来自远程服务器的数据。
+- 定义服务器中的代理：
+
+> ```javascript
+> Ext.create('Ext.data.Store', {
+>     // 使用模型，对字段进行映射
+>     model: 'StudentDataModel',
+>     proxy: {
+>         type: 'rest',
+>         actionMethods: {
+>             // 使用 GET OR POST Method
+>             read: 'POST'
+>         },
+>         // here we have to include the rest URL path which fetches data from database or Json file path where the data is stored
+>         url: 'restUrlPathOrJsonFilePath',
+>         reader: {
+>             //接收服务器来的数据
+>             type: 'json',
+>             root: 'data'
+>         }
+>     }
+> });
+> ```
+
+
+
 # 14. Ext.js 字体
 
 # 15. Ext.js 风格
