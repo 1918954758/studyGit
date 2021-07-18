@@ -375,31 +375,130 @@ Ext.panel.Panel：允许在正常面板中添加项目的基本容器
 
 ### 1. 描述
 
-
+- Ext.form.Panel：Form面板为表单提供了一个标准容器，它本质上是一个标准的Ext.panel.Panel，它自动创建一个用于管理任何Ext.form.field.Field对象的BasicForm。
 
 ### 2. 语法
 
-
+> ```javascript
+> Ext.create('Ext.form.Panel', {
+>     //我们可以将不同的子元素添加到容器中
+>     items: [child1, child2]
+> });
+> ```
 
 ### 3. 例
 
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<title>Line Chart</title>
+    	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    	<!-- GC -->
+    	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
 
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<title>Line Chart</title>
+    	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    	<!-- GC -->
+    	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
 
-
+    <script type="text/javascript" src="Container.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        	Ext.onReady(function () {
+         		var child1 = Ext.create('Ext.Panel', {
+                    html: 'Text field'
+                });
+                var child2 = Ext.create('Ext.Panel', {
+                    html: 'Text field'
+                });
+                Ext.create('Ext.form.Panel', {
+                    renderTo: Ext.getBody(),
+                    width: 100,
+                    height: 100,
+                    border: true,
+                    frame: true,
+                    layout: 'auto',//auto is one of the layout type
+                    items: [child1, child2]
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+![Ext.form.Panel](image/form_Panel.png)
 
 ### 3. Ext.tab.Panel
 
 ### 1. 描述
 
-
+- Ext.tab.Panel：标签面板，就像一个普通的面板，但支持卡标签面板布局。
 
 ### 2. 语法
 
-
+> ```javascript
+> Ext.create('Ext.tab.Panel', {
+>     //将不同的子容器作为容器项，添加到容器中。
+>     items: [child1, child2]
+> });
+> ```
+>
+> 
 
 ### 3. 例
 
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<title>Line Chart</title>
+    	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    	<!-- GC -->
+    	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
 
+    <script type="text/javascript" src="Container.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        	Ext.onReady(function () {
+         		Ext.create('Ext.tab.Panel', {
+                    renderTo: Ext.getBody(),
+                    width: 100,
+                    height: 200,
+                    items: [{
+                        xtype: 'panel',
+                        title: 'Tab One',
+                        html: 'The first tab',
+                        listeners: {
+                            render: function() {
+                                Ext.MessageBox.alert('Tab one'， 'Tab one was clicked.');
+                            }
+                        }
+                    }, {
+                        xtype: 'panel',
+                        title: 'Tan Two',
+                        html: 'The second tab',
+                        listeners: {
+                            render: function() {
+                                Ext.MessageBox.alert('Tab two', 'Tab two was clicked.');
+                            }
+                        }
+                    }]
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+
+![Ext.tab.Panel](image/tab_Panel.png)
 
 
 
@@ -407,15 +506,53 @@ Ext.panel.Panel：允许在正常面板中添加项目的基本容器
 
 ### 1. 描述
 
-
+- Ext.container.Viewport：Viewport是一个容器，他会自动调整大小到整个浏览器窗口大小。然后，我们可以在其中添加其他的 ExtJS UI组件和容器。
 
 ### 2. 语法
 
-
+> ```javascript
+> Ext.create('Ext.container.Viewport', {
+>     //这样，我们就可以将不同的子元素作为容器项，添加到容器中。
+>     items: [child1, child2]
+> });
+> ```
 
 ### 3. 例
 
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<title>Line Chart</title>
+    	<link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    	<!-- GC -->
+    	<script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
 
+    <script type="text/javascript" src="Container.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+        	Ext.onReady(function () {
+         		var childPanel1 = Ext.create('Ext.panel.Panel', {
+                    title: 'Child Panel 1',
+                    html: 'A Panel'
+                });
+                var childPanel2 = Ext.create('Ext.panel.Panel', {
+                    title: 'Child Panel2',
+                    html: 'B Panel'
+                });
+                Ext.create('Ext.container.Viewport', {
+                    renderTo: Ext.getBody(),
+                    items: [childPanel1, childPanel2]
+                });
+            });
+        </script>
+    </body>
+</html>
+```
+
+![Ext.container.Viewport](image/container_Viewport.png)
 
 
 
