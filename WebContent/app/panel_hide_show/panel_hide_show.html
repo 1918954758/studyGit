@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Line Chart</title>
+    <link rel="stylesheet" type="text/css" href="../../../ext-4.2.1.883/resources/ext-theme-classic/ext-theme-classic-all.css" />
+    <!-- GC -->
+    <script type="text/javascript" src="../../../ext-4.2.1.883/ext-all.js"></script>
+
+    <!-- <script type="text/javascript" src="Container1.js"></script> -->
+</head>
+<body>
+	<!-- 测试ExtJS 复选框添加点击事件，隐藏复选框 -->
+	<script type="text/javascript">
+		
+		Ext.onReady(function() {
+			
+			Ext.create('Ext.panel.Panel', {
+				width: 400,
+				height: 200,
+				renderTo: Ext.getBody(),
+				id: 'panel1',
+				items: [{
+					xtype: 'checkboxfield',
+					checked: true,
+					fieldLabel: 'checkbox1',
+					id: 'checkbox1Id',
+					name: 'checkbox1Name',
+					boxLabel: 'swiming1',
+					hidden: false
+				}, {
+					xtype: 'checkboxfield',
+					checked: false,
+					fieldLabel: 'checkbox2',
+					id: 'checkbox2Id',
+					name: 'checkbox2Name',
+					boxLabel: 'swiming2'
+				}, {
+					xtype: 'button',
+					width: 100,
+					text: 'click me',
+					listeners: {
+						afterrender:function(obj){  
+					        obj.getEl().dom.onclick = function(){
+					        	var flag = Ext.getCmp("checkbox1Id").hidden;
+					        	if (!flag) {
+					           		Ext.getCmp("checkbox1Id").hide();
+					        	}
+					        	if (flag) {
+					        		Ext.getCmp("checkbox1Id").show();
+					        	}
+					        };  
+					    }  
+					}
+				}]
+			});
+		});
+	</script>
+</body>
+</html>
